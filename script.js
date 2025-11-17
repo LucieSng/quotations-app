@@ -4,6 +4,8 @@ const inputQuote = document.getElementById("citation");
 const inputAuthor = document.getElementById("auteur");
 const submit = document.getElementById("form");
 const resultSubmit = document.getElementById("quote-list");
+const quoteCount = document.getElementById("count");
+let count = 0;
 
 submit.addEventListener("submit", function (e) {
   // Pour que la page ne se recharge pas à chaque citation ajoutée
@@ -36,6 +38,12 @@ function addQuote(quote, author) {
 
   // Afficher toute la div en HTML
   resultSubmit.appendChild(inputContainer);
+
+  // Incrémenter le compteur
+  count += 1;
+
+  // Modifier la valeur du compteur
+  quoteCount.innerText = count;
 }
 
 // Je veux qu'au clic, la citation s'affiche en HTML
