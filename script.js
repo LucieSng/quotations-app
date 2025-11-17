@@ -10,11 +10,33 @@ submit.addEventListener("submit", function (e) {
   e.preventDefault();
   const text = inputQuote.value;
   const author = inputAuthor.value;
+  addQuote(text, author);
   // Afficher dans la console
-  console.log(text, author);
+  // console.log(text, author);
 });
+
+// Etape 5
 // Je veux afficher les citations saisies directement sur la page
-// function addQuote(inputQuote, inputAuthor) {}
+function addQuote(quote, author) {
+  // Créer la citation
+  const quoteParagraphe = document.createElement("p");
+  quoteParagraphe.classList.add("text"); // Ajouter de la classe
+  quoteParagraphe.textContent = quote; // Insérer le texte de la citation
+
+  // Créer l'auteur
+  const authorParagraphe = document.createElement("p");
+  authorParagraphe.classList.add("author");
+  authorParagraphe.textContent = author;
+
+  // Créer la div input
+  const inputContainer = document.createElement("div");
+  inputContainer.classList.add("quote");
+  inputContainer.appendChild(quoteParagraphe); // Ajouter la citation dans la div l'élément parent
+  inputContainer.appendChild(authorParagraphe); // Ajouter l'auteur dans la div l'élément parent
+
+  // Afficher toute la div en HTML
+  resultSubmit.appendChild(inputContainer);
+}
 
 // Je veux qu'au clic, la citation s'affiche en HTML
 // submit.addEventListener("submit", function (e) {
